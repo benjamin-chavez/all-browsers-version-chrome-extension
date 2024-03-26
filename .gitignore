@@ -1,0 +1,17 @@
+# .gitignore
+
+dist/js/*
+storybook-static/*
+
+/node_modules
+npm-debug.log
+yarn-error.log
+
+.DS_Store
+
+dist
+node_modules
+.tmp
+
+src/contentScripts/layover/tailwindStyles.shadow.css
+trash-local
