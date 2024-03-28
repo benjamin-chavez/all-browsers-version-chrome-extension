@@ -2,6 +2,7 @@
   "compilerOptions": {
     // "target": "es5",
     // "module": "commonjs",
+
     "module": "ESNext",
     "target": "ESNext",
     "moduleResolution": "node",
@@ -9,7 +10,7 @@
     "outDir": "dist/js",
     "strict": true,
     "sourceMap": true,
-    "jsx": "react",
+    "jsx": "react-jsxdev",
     "esModuleInterop": true,
     // "lib": ["es2015", "dom"],
     "lib": ["ESNext", "DOM"],

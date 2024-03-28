@@ -4,12 +4,23 @@ const path = require('path');
 
 module.exports = {
   entry: {
-    backgroundPage: path.join(__dirname, 'src/backgroundPage/index.ts'),
-    // backgroundPage: path.join(__dirname, 'src/backgroundPage.ts'),
-    popup: path.join(__dirname, 'src/popup/index.tsx'),
+    background: path.join(__dirname, 'src', 'background', 'index.ts'),
+    layover: path.join(
+      __dirname,
+      'src',
+      'contentScripts',
+      'layover',
+      'index.tsx'
+    ),
+    highlightStyles: path.join(
+      __dirname,
+      'src',
+      'contentScripts',
+      'highlightStyles.ts'
+    ),
   },
   output: {
-    path: path.join(__dirname, 'dist/js'),
+    path: path.join(__dirname, 'dist/'),
     filename: '[name].js',
   },
   module: {
@@ -37,6 +48,25 @@ module.exports = {
           },
           'postcss-loader',
         ],
+      },
+      // CSS/STYLE LOADER
+      {
+        test: /\.css$/i,
+        exclude: /\.shadow\.css$/,
+        use: [
+          'style-loader',
+          {
+            loader: 'css-loader',
+            options: {
+              importLoaders: 1,
+            },
+          },
+          'postcss-loader',
+        ],
+      },
+      {
+        test: /\.shadow\.css$/,
+        use: 'raw-loader',
       },
     ],
   },
